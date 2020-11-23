@@ -1,0 +1,131 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class game extends JFrame{	
+	
+	private Font font;
+	private JTextField la ;
+	private int n = 10;
+	private int left = 10;
+	private int a = 0;
+	private int numberRandom = (int)(Math.random() * (n));
+	private JLabel label1,label2,label3;
+	private JButton btnEnter, btnDel, btnC, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
+	private String name = "";
+	private String level =  "           Level : " + (a+1) + "           ";
+	private String life = "Life : " + left + "  Random Number : " + "( 0-" + n + " )" ;
+		
+	public game (){		
+		
+		super ("Number Game !!!!");		
+						
+		font = new Font("System Bold", Font.BOLD, 20);
+		setLayout(new BorderLayout());
+		
+		JLabel b= new JLabel(new ImageIcon("C:/Users/natth/Desktop/Project_Java/bg.jpg"));
+		b.setLayout(new FlowLayout());
+		add(b);
+		
+		label1 = new JLabel("");
+		label1.setPreferredSize(new Dimension(300, 100));
+		
+		label2 = new JLabel(level);
+		label2.setFont(font);
+		label2.setForeground(Color.white);
+		
+		label3 = new JLabel(life);
+		label3.setFont(font);
+		label3.setForeground(Color.white);
+		
+		la = new JTextField("",25);
+		la.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try{
+				if (la.getText().equals("") ){
+					
+					JOptionPane.showMessageDialog(null, "Please insert Number" );
+					
+				}
+				
+				else if (Integer.parseInt(la.getText()) == (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Congratulation"+ "\n" + "Go to Level : " + (a+2) );
+					n *= 5;
+					numberRandom = (int)(Math.random() * (n));
+					a += 1;
+					la.setText("");
+				    left = 10;
+					label2.setText(level);
+					label3.setText(life);
+					
+					}
+				else if (left > 1  && Integer.parseInt(la.getText()) > (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Hight");	
+					left -= 1;
+					label3.setText(life);
+					la.setText("");
+					
+				}
+				
+				else if (left > 1 && Integer.parseInt(la.getText()) < (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Low");
+					left -= 1;
+					label3.setText(life);
+					la.setText("");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, getName() + " higthest level : " + (a));
+					System.exit(0);
+					
+				}
+				}
+				
+				catch (Exception e1) {
+					
+					JOptionPane.showMessageDialog(null, "Please insert Number" );
+					la.setText("");
+				}
+				
+			}
+
+		});
+		
+		b.add(la);
+		b.add(label1);
+		b.add(label2);
+		b.add(label3);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(350,640);;
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+
+	@Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		this.name = name;
+	}
+	
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+	
+	//public void setLevel (String level){
+		
+		//this.level =;
+		
+	//}
+}

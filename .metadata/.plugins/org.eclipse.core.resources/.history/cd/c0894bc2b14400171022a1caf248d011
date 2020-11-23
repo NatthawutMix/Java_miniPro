@@ -1,0 +1,437 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class game extends JFrame{	
+	
+	private Font font;
+	private JTextField la ;
+	private int n = 10;
+	private int left = 10;
+	private int a = 0;
+	private int numberRandom = (int)(Math.random() * (n));
+	private JLabel label1,label2,label3;
+	private JButton btnEnter, btnDel, btnC, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
+	private String name = "";
+		
+	public game (){		
+		
+		super ("Number Game !!!!");		
+						
+		font = new Font("System Bold", Font.BOLD, 20);
+		setLayout(new BorderLayout());
+		
+		JLabel b= new JLabel(new ImageIcon("C:/Users/natth/Desktop/Project_Java/bg.jpg"));
+		b.setLayout(new FlowLayout());
+		add(b);
+
+		
+		label1 = new JLabel("");
+		label1.setPreferredSize(new Dimension(300, 100));
+		
+		label2 = new JLabel("           Level : " + (a+1) + "           ");
+		label2.setFont(font);
+		label2.setForeground(Color.white);
+		
+		label3 = new JLabel("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+		label3.setFont(font);
+		label3.setForeground(Color.white);
+		
+		la = new JTextField("",25);
+		la.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try{
+				if (la.getText().equals("") ){
+					
+					JOptionPane.showMessageDialog(null, "Please insert Number" );
+					
+				}
+				
+				else if (Integer.parseInt(la.getText()) == (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Congratulation"+ "\n" + "Go to Level : " + (a+2) );
+					n *= 5;
+					numberRandom = (int)(Math.random() * (n));
+					a += 1;
+					la.setText("");
+				    left = 10;
+					label2.setText("           Level : " + (a+1) + "           ");
+					label3.setText("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+					
+					}
+				else if (left > 1  && Integer.parseInt(la.getText()) > (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Hight");	
+					left -= 1;
+					label3.setText("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+					la.setText("");
+					
+				}
+				
+				else if (left > 1 && Integer.parseInt(la.getText()) < (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Low");
+					left -= 1;
+					label3.setText("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+					la.setText("");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, getName() + " higthest level : " + (a));
+					System.exit(0);
+					
+				}
+				}
+				
+				catch (Exception e1) {
+					
+					JOptionPane.showMessageDialog(null, "Please insert Number" );
+					la.setText("");
+				}
+				
+			}
+
+		});
+		
+		String imE = "C:/Users/natth/Desktop/Project_Java/E.jpg";
+		String imD = "C:/Users/natth/Desktop/Project_Java/D.jpg";
+		String imC = "C:/Users/natth/Desktop/Project_Java/C.jpg";
+		String im0 = "C:/Users/natth/Desktop/Project_Java/0.jpg";
+		String im1 = "C:/Users/natth/Desktop/Project_Java/1.jpg";
+		String im2 = "C:/Users/natth/Desktop/Project_Java/2.jpg";
+		String im3 = "C:/Users/natth/Desktop/Project_Java/3.jpg";
+		String im4 = "C:/Users/natth/Desktop/Project_Java/4.jpg";
+		String im5 = "C:/Users/natth/Desktop/Project_Java/5.jpg";
+		String im6 = "C:/Users/natth/Desktop/Project_Java/6.jpg";
+		String im7 = "C:/Users/natth/Desktop/Project_Java/7.jpg";
+		String im8 = "C:/Users/natth/Desktop/Project_Java/8.jpg";
+		String im9 = "C:/Users/natth/Desktop/Project_Java/9.jpg";
+		
+		Icon iconE = new ImageIcon(imE);
+		Icon iconD = new ImageIcon(imD);
+		Icon iconC = new ImageIcon(imC);
+		Icon icon0 = new ImageIcon(im0);		
+		Icon icon1 = new ImageIcon(im1);		
+		Icon icon2 = new ImageIcon(im2);		
+		Icon icon3 = new ImageIcon(im3);		
+		Icon icon4 = new ImageIcon(im4);		
+		Icon icon5 = new ImageIcon(im5);		
+		Icon icon6 = new ImageIcon(im6);		
+		Icon icon7 = new ImageIcon(im7);		
+		Icon icon8 = new ImageIcon(im8);		
+		Icon icon9 = new ImageIcon(im9);
+		
+		String imEE = "C:/Users/natth/Desktop/Project_Java/EE.jpg";
+		String imDD = "C:/Users/natth/Desktop/Project_Java/DD.jpg";
+		String imCC = "C:/Users/natth/Desktop/Project_Java/cc.jpg";
+		String im00 = "C:/Users/natth/Desktop/Project_Java/00.jpg";
+		String im01 = "C:/Users/natth/Desktop/Project_Java/01.jpg";
+		String im02 = "C:/Users/natth/Desktop/Project_Java/02.jpg";
+		String im03 = "C:/Users/natth/Desktop/Project_Java/03.jpg";
+		String im04 = "C:/Users/natth/Desktop/Project_Java/04.jpg";
+		String im05 = "C:/Users/natth/Desktop/Project_Java/05.jpg";
+		String im06 = "C:/Users/natth/Desktop/Project_Java/06.jpg";
+		String im07 = "C:/Users/natth/Desktop/Project_Java/07.jpg";
+		String im08 = "C:/Users/natth/Desktop/Project_Java/08.jpg";
+		String im09 = "C:/Users/natth/Desktop/Project_Java/09.jpg";
+		
+		Icon iconEE = new ImageIcon(imEE);
+		Icon iconDD = new ImageIcon(imDD);
+		Icon iconCC = new ImageIcon(imCC);
+		Icon icon00 = new ImageIcon(im00);		
+		Icon icon01 = new ImageIcon(im01);		
+		Icon icon02 = new ImageIcon(im02);		
+		Icon icon03 = new ImageIcon(im03);		
+		Icon icon04 = new ImageIcon(im04);		
+		Icon icon05 = new ImageIcon(im05);		
+		Icon icon06 = new ImageIcon(im06);		
+		Icon icon07 = new ImageIcon(im07);		
+		Icon icon08 = new ImageIcon(im08);		
+		Icon icon09 = new ImageIcon(im09);
+
+
+		
+		
+		
+		btnC = new JButton(iconC);
+		btnC.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btnC.setRolloverIcon(iconCC);
+		
+		btnC.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText("");
+				
+			}
+		});		
+				
+		btn7 = new JButton(icon7);
+		btn7.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn7.setRolloverIcon(icon07);
+
+		btn7.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"7");
+				
+			}
+		});
+		
+		btn4 = new JButton(icon4);
+		btn4.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn4.setRolloverIcon(icon04);
+
+		btn4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"4");
+				
+			}
+		});
+		
+		btn1 = new JButton(icon1);		
+		btn1.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn1.setRolloverIcon(icon01);
+
+
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"1");
+				
+			}
+		});
+
+		btnEnter = new JButton(iconE);
+		btnEnter.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btnEnter.setRolloverIcon(iconEE);
+		
+		btnEnter.addActionListener(new ActionListener() {
+			
+			@Override
+		public void actionPerformed(ActionEvent e) {
+				
+				try{
+				if (la.getText().equals("")){
+					
+					JOptionPane.showMessageDialog(null, "Please insert number" );
+
+				}
+				else if (Integer.parseInt(la.getText()) == (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Congratulation"+ "\n" + "Go to Level : " + (a+2) );
+					n *= 5;
+					numberRandom = (int)(Math.random() * (n));
+					a += 1;
+					la.setText("");
+				    left = 10;
+					label2.setText(" Level : " + (a+1));
+					label3.setText("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+					
+					}
+				else if (left > 1  && Integer.parseInt(la.getText()) > (numberRandom)){
+					
+					JOptionPane.showMessageDialog(null, "Hight");	
+					left -= 1;
+					label3.setText("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+					la.setText("");
+				}
+				else if (left > 1 && Integer.parseInt(la.getText()) < (numberRandom)){
+					JOptionPane.showMessageDialog(null, "Low");
+					left -= 1;
+					label3.setText("Life : " + left + "  Random Number : " + "( 0-" + n + " )" );
+					la.setText("");
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(null, getName() + " higthest level : " + (a));
+					System.exit(0);
+				}
+				}
+				catch (Exception e1) {
+					
+					JOptionPane.showMessageDialog(null, "Please insert number" );
+					la.setText("");
+					
+				}	
+				
+			}
+		});
+		
+		btn8 = new JButton(icon8);
+		btn8.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn8.setRolloverIcon(icon08);
+
+		btn8.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"8");
+				
+			}
+		});
+		
+		btn5 = new JButton(icon5);
+		btn5.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn5.setRolloverIcon(icon05);
+
+		btn5.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"5");
+				
+			}
+		});
+		
+		btn2 = new JButton(icon2);
+		btn2.setRolloverIcon(icon02);
+		btn2.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+
+		btn2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"2");
+				
+			}
+		});
+	
+		btnDel = new JButton(iconD);
+		btnDel.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btnDel.setRolloverIcon(iconDD);
+		
+		btnDel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(la.getText().length()>0){
+					la.setText(la.getText().substring(0,la.getText().length()-1));
+				}
+				
+			}
+		});
+		
+		btn9 = new JButton(icon9);
+		btn9.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn9.setRolloverIcon(icon09);
+		
+		btn9.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText() + "9");
+				
+			}
+		});
+		
+		btn6 = new JButton(icon6);
+		btn6.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn6.setRolloverIcon(icon06);
+		
+		btn6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText() + "6");
+				
+			}
+		});
+		
+		btn3 = new JButton(icon3);
+		btn3.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn3.setRolloverIcon(icon03);
+		
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"3");
+				
+			}
+		});
+		
+		btn0 = new JButton(icon0);
+		btn0.setBorder ( BorderFactory.createLineBorder ( Color.BLACK, 1 ) );
+		btn0.setRolloverIcon(icon00);
+
+		btn0.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"0");
+				
+			}
+		});
+		
+		String icat = "C:/Users/natth/Desktop/Project_Java/cat.jpg";
+		
+		JPanel rol1 = new JPanel();
+		
+		rol1.setBackground(Color.BLACK);
+		rol1.setLayout(new GridLayout (5,3,5,5));		
+		
+		JLabel b1= new JLabel(new ImageIcon(icat));
+		JLabel b2= new JLabel(new ImageIcon(icat));
+
+		rol1.add(btnC);
+		rol1.add(btnEnter);
+		rol1.add(btnDel);
+		rol1.add(btn7);
+		rol1.add(btn8);
+		rol1.add(btn9);	
+		rol1.add(btn4);
+		rol1.add(btn5);
+		rol1.add(btn6);
+		rol1.add(btn1);
+		rol1.add(btn2);
+		rol1.add(btn3);
+		rol1.add(b2);
+		rol1.add(btn0);
+		rol1.add(b1);				
+		
+		JPanel number = new JPanel();
+		number.setBackground(Color.WHITE);
+		number.add(rol1);
+		
+		JLabel f = new JLabel("                                                                ");
+		JLabel f2 = new JLabel("                                                                ");
+		
+
+		b.add(label1);
+		b.add(label2);
+		b.add(label3);
+		b.add(f2);
+		b.add(la);
+		b.add(f);
+		b.add(number);
+
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(350,640);;
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+
+	@Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		this.name = name;
+	}
+	
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+}

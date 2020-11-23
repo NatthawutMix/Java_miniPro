@@ -1,0 +1,11 @@
+public class JavaCodeExam {
+ public static void main(String[] args) {
+  // standard random = Min + (int)(Math.random() * ((Max - Min) + 1))
+  
+  // random 0 - 10
+  int numberLandom;
+   numberLandom = (int)(Math.random() * (100));
+   System.out.print(numberLandom);
+  
+ }
+}

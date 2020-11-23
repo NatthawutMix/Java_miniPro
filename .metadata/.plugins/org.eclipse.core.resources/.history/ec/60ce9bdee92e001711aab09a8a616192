@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+public class pointTotal {
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> ptt = new ArrayList<Integer>();
+		ptt.add(10,20);
+		System.out.println(ptt);
+	}
+
+}

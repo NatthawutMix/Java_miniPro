@@ -1,0 +1,7 @@
+
+public class pointTotal {
+	
+	private int Point = 0;
+	private int Lavel = 1;
+
+}

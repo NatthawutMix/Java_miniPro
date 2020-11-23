@@ -1,0 +1,75 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class windows extends JFrame{
+	
+	JButton b1, b2;
+	JLabel	l1, l2, l3, background;
+	
+	public windows(){
+		
+		super ("Number Game !!!!");
+		
+		setLayout(new BorderLayout());
+		background = new JLabel(new ImageIcon( "C:/Users/natth/Desktop/Project_Java/bg.jpg" ));
+		add(background);
+		background.setLayout(new GridLayout (6,1));
+		
+		String bg1  = "C:/Users/natth/Desktop/Project_Java/bg1.jpg";
+		String bg2  = "C:/Users/natth/Desktop/Project_Java/bg2.jpg";		
+		String bg11 = "C:/Users/natth/Desktop/Project_Java/bg11.jpg";		
+		String bg22 = "C:/Users/natth/Desktop/Project_Java/bg22.jpg";		
+		
+		
+		Icon ibg1  = new ImageIcon(bg1);
+		Icon ibg11 = new ImageIcon(bg11);
+		Icon ibg2  = new ImageIcon(bg2);
+		Icon ibg22 = new ImageIcon(bg22);
+		
+		b1 = new JButton(ibg1);
+		b1.setRolloverIcon(ibg11);
+		
+		b1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				game q1 = new game();
+				q1.setVisible(true);
+				
+				background.setVisible(false);
+				dispose();
+				
+			}
+		});		
+		
+		b2 = new JButton(ibg2);
+		b2.setRolloverIcon(ibg22);
+		
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				System.exit(0);
+				
+			}
+		});
+		
+		l1 = new JLabel("");
+		l2 = new JLabel("");
+		l3 = new JLabel("");
+		
+		background.add(l1);
+		background.add(l2);
+		background.add(l3);
+		background.add(b1);
+		background.add(b2);
+		
+	}	
+	
+}
+
+

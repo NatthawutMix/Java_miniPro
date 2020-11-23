@@ -1,0 +1,254 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class windows extends JFrame{
+	
+	private JTextField la ;
+	private Font font;
+	private JLabel label1;
+	private int n = 10;
+	private int count = 0;
+	private int point = 1;
+	private int level = 1;
+	private int left = 10;
+	private int a = 0;
+	private int numberRandom = (int)(Math.random() * (n));
+	ArrayList<Integer> addScores1 = new ArrayList <Integer>();
+	ArrayList<Integer> addScores2 = new ArrayList <Integer>();
+	
+
+		
+	public windows (){		
+		
+		super ("Random Number");
+				
+		font = new Font("Courier New", Font.BOLD, 20);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.setBackground(Color.BLACK);
+		
+		label1 = new JLabel("Random Number",SwingConstants.CENTER);
+		label1.setFont(font);
+		label1.setForeground(Color.WHITE);
+		label1.setPreferredSize(new Dimension(300, 100));
+		la = new JTextField(25);
+		
+		JLabel label3 = new JLabel("Level : " + (a+1) + "  Random : " + "(0-" + n + ")" );
+		label3.setFont(font);
+		label3.setForeground(Color.yellow);
+		
+		JLabel label2 = new JLabel("  Point : " + point + " Left : " + left);
+		label2.setFont(font);
+		label2.setForeground(Color.red);
+				
+		JPanel rol1 = new JPanel();
+		rol1.setLayout(new GridLayout(5,3));
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText("");
+				
+			}
+		});
+		
+		JButton btn7 = new JButton("7");
+		btn7.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"7");
+				
+			}
+		});
+		JButton btn4 = new JButton("4");
+		btn4.setPreferredSize(new Dimension(75, 75));
+		btn4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"4");
+				
+			}
+		});
+		JButton btn1 = new JButton("1");
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"1");
+				
+			}
+		});
+
+		JButton btnEnter = new JButton("Enter");
+		btnEnter.addActionListener(new ActionListener() {
+			
+			@Override
+		public void actionPerformed(ActionEvent e) {
+				if (Integer.parseInt(la.getText()) == (numberRandom)){
+					JOptionPane.showMessageDialog(null, "Congratulation");
+					n *= 10;
+					numberRandom = (int)(Math.random() * (n));
+					addScores1.add(point);
+					addScores2.add(level);
+					JOptionPane.showMessageDialog(null,"Level : " +addScores2.get(a) + "\n" + "Go to Level : " + (a+2) );
+					a += 1;
+					la.setText("");
+				    left = 10;
+					label2.setText(" Left : " + left);
+					label3.setText("Level : " + (a+1) + "  Random : " + "(0-" + n + ")" );
+					}
+				else if (count < 10 && Integer.parseInt(la.getText()) > (numberRandom)){
+					JOptionPane.showMessageDialog(null, "Hight");	
+					point += 1 ;
+					count += 1;
+					left -= 1;
+					label2.setText(" Left : " + left);
+					la.setText("");
+				}
+				else if (count < 10 && Integer.parseInt(la.getText()) < (numberRandom)){
+					JOptionPane.showMessageDialog(null, "Low");
+					point += 1 ;
+					count += 1;
+					left -= 1;
+					label2.setText(" Left : " + left);
+					la.setText("");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "You Lose");
+				}
+				
+			}
+		});
+		
+		JButton btn8 = new JButton("8");
+		btn8.setPreferredSize(new Dimension(75, 75));
+		btn8.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"8");
+				
+			}
+		});
+		JButton btn5 = new JButton("5");
+		btn5.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"5");
+				
+			}
+		});
+		JButton btn2 = new JButton("2");
+		btn2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"2");
+				
+			}
+		});
+	
+		JButton btnDel = new JButton("Del");
+		btnDel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText().substring(0,la.getText().length()-1));
+				
+			}
+		});
+		
+		JButton btn9 = new JButton("9");
+		btn9.setPreferredSize(new Dimension(75, 75));
+		btn9.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"9");
+				
+			}
+		});
+		JButton btn6 = new JButton("6");
+		btn6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"6");
+				
+			}
+		});
+		JButton btn3 = new JButton("3");
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"3");
+				
+			}
+		});
+		
+		JButton btn0 = new JButton("0");
+		btn0.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				la.setText(la.getText()+"0");
+				
+			}
+		});
+		
+		JPanel free = new JPanel();
+		free.setBackground(Color.BLACK);
+		JPanel free1 = new JPanel();
+		free1.setBackground(Color.BLACK);
+		rol1.add(btnClear);
+		rol1.add(btnEnter);
+		rol1.add(btnDel);
+		rol1.add(btn7);
+		rol1.add(btn8);
+		rol1.add(btn9);	
+		rol1.add(btn4);
+		rol1.add(btn5);
+		rol1.add(btn6);
+		rol1.add(btn1);
+		rol1.add(btn2);
+		rol1.add(btn3);
+		rol1.add(free1);
+		rol1.add(btn0);
+		rol1.add(free);		
+
+		JPanel number = new JPanel();
+		number.setBackground(Color.BLACK);
+
+		number.add(rol1);
+
+		c.add(label1);
+		c.add(label3);
+		c.add(label2);
+		c.add(la);
+		c.add(number);
+		
+
+		
+
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(400, 600);;
+		setLocation(500,0);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new windows();
+	}
+
+}

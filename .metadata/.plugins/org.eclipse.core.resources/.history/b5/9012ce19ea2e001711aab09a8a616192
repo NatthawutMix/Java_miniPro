@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+public class pointTotal {
+	
+	public static void main(String[] args) {
+		
+		ArrayList<int[]> arl=new ArrayList<int[]>();
+		int a1[]={1,2,3};
+		arl.add(0,a1);
+		System.out.println("Arraylist contains:"+arl.get(0));
+	}
+
+}

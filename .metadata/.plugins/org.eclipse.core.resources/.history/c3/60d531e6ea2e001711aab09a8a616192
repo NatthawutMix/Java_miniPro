@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+public class addScore {
+	
+	ArrayList<pointTotal> addScores = new ArrayList<pointTotal>();
+	pointTotal = ptt;
+	
+	public addScore(int Point, int Level) {
+		addScores  = new pointTotal(Point,Level);
+
+}
+
+}

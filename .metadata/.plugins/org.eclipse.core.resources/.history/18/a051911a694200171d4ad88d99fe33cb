@@ -1,0 +1,9 @@
+
+public class open {
+	
+	public static void main(String[] args) {
+		
+		windows fram = new windows();
+	}
+
+}

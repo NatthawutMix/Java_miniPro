@@ -1,0 +1,21 @@
+
+public class pointTotal {
+	
+	private int Point = 0;
+	private int Level = 1;
+	
+	public pointTotal (int Point, int Level){
+		
+		this.Point = Point;
+		this.Level = Level;
+	}
+	
+	public int getPoint() {
+		return Point;
+	}
+	
+	public int getLevel() {
+		return Level;
+	}
+
+}

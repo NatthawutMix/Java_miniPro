@@ -1,0 +1,45 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class test extends JFrame{
+	
+	JButton b1;
+	public test(){
+		super ("s");
+		
+		setLayout(new BorderLayout());
+		JLabel background=new JLabel(new ImageIcon("C:/Users/natth/Desktop/Project_Java/bg.jpg"));
+		add(background);
+		background.setLayout(new FlowLayout());
+		b1 = new JButton("Start");
+		b1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				windows q1 = new windows();
+				q1.setVisible(true);
+				
+				background.setVisible(false);
+			}
+		});
+		
+		background.add(b1);
+		
+		setSize(350,650);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+		
+
+	}
+	
+	public static void main(String[] args) {		
+		
+		new test();
+		
+	}
+}
+
+

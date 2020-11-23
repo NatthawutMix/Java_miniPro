@@ -1,0 +1,14 @@
+
+public class open {
+	
+	public static void main(String[] args) {
+		
+		test fram = new test();
+		
+		fram.setSize(350,650);
+		fram.setLocationRelativeTo(null);
+		fram.setDefaultCloseOperation(fram.EXIT_ON_CLOSE);
+		fram.setVisible(true);
+	}
+
+}

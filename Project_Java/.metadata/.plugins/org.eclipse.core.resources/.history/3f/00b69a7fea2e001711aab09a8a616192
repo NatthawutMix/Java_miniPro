@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+public class pointTotal {
+	
+	private int Point = 0;
+	private int Level = 1;
+	private ArrayList<pointTotal> ptt = new ArrayList<pointTotal>();
+	
+	public pointTotal (int Point, int Level){
+		
+		this.Point = Point;
+		this.Level = Level;
+	}
+	
+	public int getPoint() {
+		return Point;
+	}
+	
+	public int getLevel() {
+		return Level;
+	}
+	
+	public void addScore(int Point, int Level) {
+		ptt  = new pointTotal(int Point, int Level);
+		items.add(addItem);
+}
+
+}
